@@ -1,0 +1,1 @@
+"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --unsafely-treat-insecure-origin-as-secure="%1" --user-data-dir=/test/only/profile/dir
