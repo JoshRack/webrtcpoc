@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>SignalR Simple Chat</title>
+    <style type="text/css">
+        #remote {
+            width: 80%;
+            height: 80%;
+        }
+        #localVideo {
+            width: 10%;
+            height: 10%;
+        }
+    </style>
+</head>
+<body>
+    <video id="localVideo" autoplay muted></video>
+    <video id="remoteVideo" autoplay></video>
+
+    <div>
+        <button id="startButton">Start</button>
+        <button id="callButton">Call</button>
+        <button id="hangupButton">Hang Up</button>
+    </div>
+
+    <!--Script references. -->
+    <script src="Scripts/jquery-1.6.4.min.js"></script>
+    <script src="Scripts/jquery.signalR-2.2.0.min.js"></script>
+    <script src="signalr/hubs"></script>
+    <script src="Scripts/adapter.js"></script>
+    <script src="Scripts/common.js"></script>
+    <script src="Scripts/main.js"></script>
+    <script type="text/javascript">
+        //var hub;
+        //$(function () {
+        //    // Declare a proxy to reference the hub.
+        //    hub = $.connection.webRtcHub;
+        //    $.connection.hub.start().done(function () { });
+        //});
+        //$(function () {
+        //    window.URL = window.URL || window.webkitURL || window.mozURL || window.msURL;
+        //    navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+        //    if (!navigator.getUserMedia) {
+        //        return alert('getUserMedia not supported in this browser.');
+        //    }
+
+        //    var RTCPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection;
+        //    var RTCSessionDescription = window.RTCSessionDescription || window.mozRTCSessionDescription;
+        //    var localStream;
+
+        //    var connection = new RTCPeerConnection(null);
+        //    connection.onicecandidate = function (event) {
+        //        if (event.candidate) {
+        //            chat.server.send(JSON.stringify({ "candidate": event.candidate }));
+        //        }
+        //    };
+        //    connection.onaddstream = function (event) {
+        //        var video = document.querySelector("#remote");
+        //        video.src = window.URL.createObjectURL(event.stream);
+
+        //        console.log(event.stream.id)
+        //    }
+
+        //    // Declare a proxy to reference the hub.
+        //    var chat = $.connection.webRtcHub;
+        //    chat.client.newMessage = function (message) {
+        //        var m = JSON.parse(message);
+        //        console.log(m);
+        //        if (m.sdp) {
+        //            if (m.sdp.type == 'offer') {
+        //                connection.setRemoteDescription(new RTCSessionDescription(m.sdp), function () {
+        //                    if (connection.remoteDescription.type == 'offer') {
+        //                        connection.addStream(localStream);
+        //                    }
+        //                });
+        //                connection.createAnswer(function (desc) {
+        //                    connection.setLocalDescription(desc, function () {
+        //                        chat.server.send(JSON.stringify({ 'sdp': connection.localDescription }));
+        //                    })
+        //                }, function (err) { console.log(err.toString()); });
+        //            }                    
+                    
+        //        }
+        //        if (m.candidate) {
+        //            connection.addIceCandidate(new RTCIceCandidate(m.candidate), function () {
+        //                console.log("Success!");
+        //            }, function (err) {
+        //                console.log(err.toString());
+        //            });
+        //        }
+        //    };
+
+        //    $.connection.hub.start().done(function () {
+        //        var mediaOptions = { audio: true, video: true };
+
+        //        navigator.getUserMedia(mediaOptions, success, function (e) {
+        //            console.log(e);
+        //        });
+
+        //        function success(stream) {
+        //            var video = document.querySelector("#local");
+        //            video.src = window.URL.createObjectURL(stream);
+        //            localStream = stream;
+        //            console.log(stream.id)
+
+        //            connection.addStream(stream);
+        //        }
+
+        //        $('#Call').click(function (args) {
+        //            connection.createOffer(function (desc) {
+        //                connection.setLocalDescription(desc, function () {
+        //                    chat.server.send(JSON.stringify({ "sdp": desc }));
+        //                });
+        //            }, function (error) { console.log(error.toString()); }, {
+        //                offerToReceiveAudio: 1,
+        //                offerToReceiveVideo: 1
+        //            });
+        //        });
+        //    });
+
+            
+        //});
+    </script>
+</body>
+</html>
